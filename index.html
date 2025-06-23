@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rahul Gupta | Naam to suna hoga</title>
+    <title>Rahul Gupta | Full Stack Developer</title>
 
     <!-- SEO Meta Tags -->
     <meta
@@ -28,7 +28,7 @@
       content="Explore the journey, skills, and projects of Rahul Gupta, Full Stack Developer."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="rahul college image.png" />
+    <meta property="og:image" content="intro-image.png" />
     <meta property="og:url" content="https://github.com/rahul-gupta-dev" />
 
     <link
@@ -37,366 +37,12 @@
       crossorigin="anonymous"
     />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script
+      defer
+      src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      :root {
-        --main-color: #003366;
-        --main-light: #ccddee;
-        --yellow-color: #fbbd05d2;
-        --orange-color: #ea4435e1;
-        --active: #34a853;
-        --active-light: #34a853a8;
-        --black: #000;
-        --white: #fff;
-        --light: f0f0f0;
-        --radius: 12px;
-        --shadow: 0 0 15px rgba(255, 255, 255, 0.1);
-      }
-
-      html,
-      body {
-        font-family: "Segoe UI", sans-serif;
-        scroll-behavior: smooth;
-        background-color: var(--black);
-      }
-
-      .maskdiv {
-        pointer-events: none;
-        transition: opacity 0.4s ease;
-      }
-      .masked {
-        opacity: 0.8 !important;
-      }
-
-      #maskLayer {
-        pointer-events: none;
-        transition: mask-image 0.1s, -webkit-mask-image 0.1s;
-      }
-
-      #introText {
-        color: white;
-        mix-blend-mode: difference;
-        transition: color 0.3s ease;
-      }
-
-      /* Optional: to prevent text being selectable */
-      #introText * {
-        user-select: none;
-      } /* Prevent image from being selected */
-      #intro img {
-        user-select: none;
-        -webkit-user-drag: none;
-        pointer-events: none;
-      }
-
-      /* Animated Gradient Text */
-      .gradient-text {
-        background: linear-gradient(
-          270deg,
-          var(--main-color),
-          var(--active),
-          var(--orange-color),
-          var(--yellow-color)
-        );
-        background-size: 300% 300%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        animation: gradientShift 8s ease infinite;
-      }
-
-      @keyframes gradientShift {
-        0%,
-        100% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-      }
-
-      /* Fix for selectable real text */
-      .selectable-text {
-        position: absolute;
-        z-index: 30;
-        color: transparent;
-        user-select: text;
-        pointer-events: auto;
-      }
-
-      .selectable-text span {
-        color: black;
-        background: none;
-        -webkit-background-clip: unset;
-        -webkit-text-fill-color: unset;
-      }
-
-      .gredient-btn {
-        background: linear-gradient(
-          45deg,
-          var(--main-color),
-          var(--active),
-          var(--yellow-color),
-          var(--orange-color)
-        );
-        background-size: 300% 300%;
-        color: #fff;
-        font-weight: 600;
-        border-radius: var(--radius);
-        padding: 10px 20px;
-        box-shadow: var(--shadow);
-
-        animation: fadeInUp 1.2s ease-out forwards, shift 6s ease infinite;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: transform 0.2s ease;
-
-        &:hover {
-          transform: scale(0.99);
-        }
-
-        &:has(svg) {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-
-        & .hand-icon {
-          width: 28px;
-          height: 28px;
-          animation: clickPulse 1.2s infinite ease-in-out;
-          transform-origin: bottom center;
-        }
-      }
-
-      .fade-in-up {
-        opacity: 0;
-        transform: translateY(20px);
-        animation: fadeInUp 1s ease-out forwards;
-      }
-
-      @keyframes fadeInUp {
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      @keyframes shift {
-        0%,
-        100% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-      }
-
-      @keyframes clickPulse {
-        0%,
-        100% {
-          transform: scale(1) translateY(0);
-        }
-        50% {
-          transform: scale(1.05) translateY(3px);
-        }
-      }
-      .menu-item.active {
-        color: var(--active);
-        font-weight: bold;
-      }
-
-      /* home */
-      #achievementGrid > div {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-      }
-
-      .line-clamp {
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        overflow: hidden;
-        -webkit-box-orient: vertical;
-        transition: max-height 0.4s ease, -webkit-line-clamp 0.4s ease;
-        max-height: 3.6em; /* ~2 lines */
-      }
-      .expanded {
-        -webkit-line-clamp: unset;
-        max-height: 1200px;
-        transition: all 0.3s ease;
-      }
-
-      .title-text::after {
-        content: "";
-        display: block;
-        height: 3px;
-        width: 0%;
-        background: linear-gradient(to right, #34a853, #a3e635);
-        transition: width 0.6s ease;
-        margin-top: 4px;
-        border-radius: 2px;
-      }
-
-      .group:hover .title-text::after {
-        width: 40%;
-      }
-
-      .group:has(.expanded) .title-text::after {
-        width: 100%;
-      }
-
-      /* Apply style to all group cards */
-      #home .card-title {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        font-weight: bold;
-      }
-
-      #home .group p {
-        color: rgb(129, 119, 119);
-      }
-
-      #home .group:has(p.expanded) {
-        box-shadow: 0 0 15px rgba(144, 238, 144, 0.4);
-
-        & p {
-          color: var(--white);
-        }
-      }
-
-      /* Smooth transition for paragraphs too */
-      .description {
-        transition: all 3s ease-in-out;
-      }
-
-      /* Toggle button styling */
-      .toggle-btn {
-        font-size: 26px;
-        cursor: pointer;
-      }
-
-      .toggle-btn:hover {
-        transform: scale(0.95);
-      }
-      .tab-btn {
-        padding: 5px 15px !important;
-
-        &:hover {
-          transform: scale(0.99);
-        }
-
-        &.active {
-          background-color: var(--active-light);
-          transform: scale(0.95);
-        }
-        &.active::after {
-          content: "📌";
-        }
-      }
-
-      .timeline ul {
-        /* list-style: none; */
-      }
-      .timeline li {
-        border-left: 3px solid #34a853;
-        padding: 5px 10px;
-        transition: all 0.3s ease-in-out;
-      }
-
-      .timeline li:hover {
-        background-color: rgba(255, 255, 255, 0.03);
-        transform: scale(1.01);
-      }
-      .timeline ul li h4 span {
-        float: right;
-        font-style: italic;
-      }
-      #experience div.grid:last-child div h5 {
-        color: var(--active);
-        font-weight: bold;
-        margin-bottom: 3px;
-      }
-      #project .grid div img {
-        width: 100%;
-        height: 170px;
-        object-fit: cover;
-      }
-
-      #contactForm {
-        text-align: center;
-      }
-      #successCard {
-        padding: 4rem;
-      }
-
-      @media (max-width: 470px) {
-        h2.fade-in-up {
-          font-size: 1.75rem;
-        }
-        #experience h3 > span {
-          display: none;
-        }
-      }
-
-      @media (max-width: 380px) {
-        h2.fade-in-up {
-          font-size: 1.5rem;
-        }
-      }
-
-      @media (max-width: 320px) {
-        header {
-          padding: 10px 0 !important;
-        }
-        header .menu-item {
-          font-size: 13px;
-          margin: 0 4px !important;
-        }
-        h2.fade-in-up {
-          font-size: 1.4rem;
-        }
-      }
-
-      .social-icon i {
-        font-size: 16px;
-        padding: 10px;
-        border-radius: 50%;
-        transition: all 0.3s ease;
-        background-color: #36333378;
-      }
-
-      .social-icon .linkedin:hover {
-        color: #0a66c2;
-        background-color: #e6f0fb;
-      }
-
-      .social-icon .github:hover {
-        color: #171515;
-        background-color: #f2f2f2;
-      }
-
-      .social-icon .fa-phone:hover {
-
-        background-color: var(--active)
-      }
-      .social-icon .email:hover {
-        color: #d93025;
-        background-color: #fbeaea;
-      }
-
-      .social-icon .twitter:hover {
-        color: #1da1f2;
-        background-color: #e8f5fe;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
@@ -414,10 +60,25 @@
         class="maskdiv masked w-full h-full absolute top-0 left-0 z-10 opacity-0 transition-opacity duration-500"
       >
         <img
-          src="rahul college image.png"
+          src="intro-image.png"
           alt="Torch Mask Image"
+          loading="lazy"
           class="w-full h-full object-cover"
         />
+      </div>
+
+      <!-- Welcome Banner Message -->
+      <div
+        id="welcomeBanner"
+        class="fixed bottom-5 left-full transform -translate-x-1/2 transition-all duration-500"
+      >
+        <span class="text-sm md:text-base">
+          👋 Welcome to Rahul Gupta's Portfolio. Opening Home Page in
+          <span id="countdown">5</span>s.
+        </span>
+        <button id="stayBtn" class="rounded hover:bg-green-300 transition">
+          Yes
+        </button>
       </div>
 
       <!-- Text Content -->
@@ -425,7 +86,6 @@
         id="introText"
         class="absolute inset-0 z-20 flex flex-col justify-center items-center text-center px-4 text-white pointer-events-none"
       >
-        <p>Hello World, I'm</p>
         <h1
           class="text-5xl md:text-7xl font-extrabold mb-4 fade-in-up gradient-text"
         >
@@ -479,7 +139,7 @@
           target="_blank"
           class="text-green-400 hover:underline text-sm fade-in-up"
         >
-          <i class="fa-solid fa-download"></i> Resume
+          <i class="fa-solid fa-download"></i> <span>Resume</span>
         </a>
       </header>
 
@@ -497,52 +157,61 @@
             </h3>
 
             <p class="text-gray-300 line-clamp description">
-              Successfully delivered 22+ web apps. Specialized in MERN, PHP,
-              Laravel, and WordPress. Improved UX by 60% using optimized logic
-              and performance-based design. Delivered enterprise-level features
-              in scalable codebases.
+              Successfully delivered <strong>22+ scalable web apps</strong>.
+              Specialized in MERN, PHP, Laravel, and WordPress.
+              <strong>Improved UX by 60%</strong> using optimized logic and
+              performance-based design. Delivered enterprise-level features in
+              scalable codebases.
             </p>
           </div>
 
-          <!-- Card 2 -->
+          <!-- Card 2: Grihum Bank -->
+          <div
+            class="bg-white/5 p-5 rounded-lg shadow transition group relative"
+          >
+            <h3 class="card-title text-xl text-green-400">
+              <span class="title-text relative">🏦 Grihum NBFC Bank</span>
+              <span class="toggle-btn cursor-pointer">+</span>
+            </h3>
+            <p class="text-gray-300 line-clamp description">
+              Assigned to NBFC client
+              <strong>Grihum Housing Finance Limited</strong>, via Sanglob as a
+              Developer & Functional Tester. Contributing to
+              <strong>Ekhum</strong> (Live Fintech LOS platform used pan-India).
+              Ensuring platform stability, seamless deployment.<strong>
+                95% defect-free releases</strong
+              >
+              and optimized UI for end-users. Bridging development & QA for
+              faster deployment cycles.
+            </p>
+          </div>
+
+          <!-- Card: 3 -->
           <div class="bg-white/5 p-5 rounded-lg transition group relative">
             <h3 class="card-title text-xl text-green-400">
               <span class="title-text relative">Real Estate Platform</span>
               <span class="toggle-btn">+</span>
             </h3>
             <p class="text-gray-300 line-clamp description">
-              Designed responsive UI and dynamic forms using jQuery, PHP & AJAX.
-              Enabled property posting, session handling, login, and real-time
-              updates. Enhanced SEO with clean URLs and meta tag optimization.
-            </p>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="bg-white/5 p-5 rounded-lg transition group relative">
-            <h3 class="card-title text-xl text-green-400">
-              <span class="title-text relative">WordPress Customization</span>
-              <span class="toggle-btn">+</span>
-            </h3>
-            <p class="text-gray-300 line-clamp description">
-              Built 10+ custom themes and plugins. Integrated WooCommerce,
-              booking systems, and contact forms. Reduced load time by 40% and
-              improved client satisfaction with mobile-first design.
+              Created dynamic listing engine with
+              <strong>AJAX-based filtering</strong>, <strong>admin CMS</strong>,
+              session auth & mobile-first layout. Improved site CTR by
+              <strong>35%</strong> via SEO optimization. Enabled property
+              posting, session handling, login, and real-time updates.
             </p>
           </div>
 
           <!-- Card 4 -->
           <div class="bg-white/5 p-5 rounded-lg transition group relative">
             <h3 class="card-title text-xl text-green-400">
-              <span class="title-text relative"
-                >Key Strengths & Achievements</span
-              >
+              <span class="title-text relative">WordPress Customization</span>
               <span class="toggle-btn">+</span>
             </h3>
             <p class="text-gray-300 line-clamp description">
-              2 hackathon participations, trackle web challenge. Strong
-              debugging, Figma to code conversion, SEO strategies, clean UI/UX
-              sense, fast learner, reliable team player. Trusted by mentors and
-              managers.
+              Built <strong>10+ custom themes & plugins</strong> with
+              WooCommerce, booking forms, ACF & Elementor. Reduced load time by
+              <strong>40%</strong> using lazy loading and image optimization.
+              Improved client satisfaction with mobile-first design.
             </p>
           </div>
 
@@ -551,14 +220,14 @@
             class="bg-white/5 p-5 rounded-lg shadow transition group relative"
           >
             <h3 class="card-title text-xl text-green-400">
-              <span class="title-text relative">Brightminds Essay Portal</span>
+              <span class="title-text relative">SEO & Performance Expert</span>
               <span class="toggle-btn cursor-pointer">+</span>
             </h3>
             <p class="text-gray-300 line-clamp description">
-              Developed applicant and admin portals for national essay
-              competition. Features include timer-based text editor, auto-save
-              at 300+ words, role-based dashboard, dynamic modals, and
-              responsive layout using DataTables & PHP PDO.
+              Achieved <strong>90+ Lighthouse scores</strong> on 4+ sites.
+              Optimized metadata, lazy-load, page speed, and implemented
+              <strong>schema.org</strong> for Google SERP enhancement. and
+              Google ranking visibility by applying white-hat strategies.
             </p>
           </div>
 
@@ -567,32 +236,30 @@
             class="bg-white/5 p-5 rounded-lg shadow transition group relative"
           >
             <h3 class="card-title text-xl text-green-400">
-              <span class="title-text relative">SEO & Performance Expert</span>
+              <span class="title-text relative"> 🧑‍🤝‍🧑 Team & Collaboration</span>
               <span class="toggle-btn cursor-pointer">+</span>
             </h3>
             <p class="text-gray-300 line-clamp description">
-              Improved SEO for 4 websites by optimizing page structure, meta
-              tags, schema markup, and responsive design. Boosted Lighthouse
-              scores to 90+ and Google ranking visibility by applying white-hat
-              strategies.
+              Led integration on <strong>5 projects</strong>. Learn from
+              Seniors, Mentored juniors in Git, clean code, & agile methology.
+              Coordinated with developers, testers, PMs & UI/UX
+              teams. Recognized for team-first attitude and <strong>quick debugging</strong>.
             </p>
           </div>
 
           <!-- Card 7 -->
-          <div
-            class="bg-white/5 p-5 rounded-lg shadow transition group relative"
-          >
+          <div class="bg-white/5 p-5 rounded-lg transition group relative">
             <h3 class="card-title text-xl text-green-400">
               <span class="title-text relative"
-                >Leadership & Collaboration</span
+                >Key Strengths & Achievements</span
               >
-              <span class="toggle-btn cursor-pointer">+</span>
+              <span class="toggle-btn">+</span>
             </h3>
             <p class="text-gray-300 line-clamp description">
-              Led frontend and backend integration across 5 projects.
-              Collaborated with designers and testers. Mentored juniors on Git,
-              clean code, and deployment best practices. Recognized for
-              team-first attitude and quick debugging.
+              <strong>2 hackathon</strong> participations, trackle web
+              challenge. Strong debugging, Figma to code conversion, SEO
+              strategies, clean UI/UX sense, fast learner, reliable team player.
+              Trusted by mentors and managers.
             </p>
           </div>
 
@@ -601,179 +268,239 @@
             class="bg-white/5 p-5 rounded-lg shadow transition group relative"
           >
             <h3 class="card-title text-xl text-green-400">
+              <span class="title-text relative">Brightminds Essay Portal</span>
+              <span class="toggle-btn cursor-pointer">+</span>
+            </h3>
+            <p class="text-gray-300 line-clamp description">
+              Developed applicant and admin portals for essay competition.
+              Features include <strong>timer-based text editor</strong>,
+              auto-save at 300+ words, <strong>role-based dashboard</strong>,
+              dynamic modals, and responsive layout using DataTables & PHP PDO.
+            </p>
+          </div>
+
+          <!-- Card 9 -->
+          <div
+            class="bg-white/5 p-5 rounded-lg shadow transition group relative"
+          >
+            <h3 class="card-title text-xl text-green-400">
               <span class="title-text relative">Hackathon & Upskilling</span>
               <span class="toggle-btn cursor-pointer">+</span>
             </h3>
             <p class="text-gray-300 line-clamp description">
-              Participated in Amazon Sambhav, Google Chrome AI, and TruthTell
-              Hackathons. Constantly learning React, Laravel, and OutSystems.
-              Passionate about solving real-world problems and contributing to
-              community-driven coding events.
+              Participant in <strong>Hackathone</strong>,
+              <strong>Product Tank Pune </strong>. Upskilling in Advanced React,
+              OutSystems.
             </p>
           </div>
         </div>
       </div>
 
       <!-- Live Projects -->
-      <div
-        id="project"
-        class="p-6 bg-gradient-to-b from-[#003366] to-[#34a853a8] hidden"
-      >
+      <div id="project" class="p-6 bg-gradient-to-t from-[#1a2a6c] hidden">
+        
         <h2 class="text-3xl font-bold mb-4 text-white fade-in-up">
-          💼 Featured Live Project
+          💼 Featured Live Projects
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-          <!-- Project 1 -->
-          <div
-            class="bg-white/5 p-5 rounded-lg shadow hover:scale-[1.015] transition-all duration-300 group"
-          >
-            <img
-              src="https://placehold.co/300x200?text=CinemaHub"
-              alt="CinemaHub Clone"
-              class="rounded mb-4"
-            />
-            <h3 class="text-xl font-bold text-green-300 mb-1">
-              Cinema Hub Clone 🎬
-            </h3>
-            <p class="text-sm text-gray-300 mb-2">
-              A React-based streaming UI inspired by JioCinema. Fully
-              responsive, styled with Tailwind, and powered by JSON API.
-            </p>
-            <p class="text-xs text-gray-400 mb-3">
-              March 2025 | Tech: React, Tailwind, API
-            </p>
-            <div class="flex justify-between text-sm text-blue-400">
-              <a href="#" target="_blank" class="hover:underline"
-                >View Live ↗</a
-              >
-              <a
-                href="https://github.com/rahulg078/cinema-hub-react"
-                target="_blank"
-                class="hover:underline"
-                >GitHub</a
-              >
+
+        <!-- Tabs -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          <button class="project-tab-btn active" data-category="all">
+            All
+          </button>
+          <button class="project-tab-btn" data-category="live">
+            Live Project
+          </button>
+          <button class="project-tab-btn" data-category="github">GitHub</button>
+          <button class="project-tab-btn" data-category="netlify">
+            Netlify
+          </button>
+          <button class="project-tab-btn" data-category="local">
+            Local System
+          </button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
+          id="projectGrid"
+        >
+          <!-- Project Card 1 -->
+          <div class="project-card" data-category="live">
+            <div class="bg-white/5 p-5 rounded-lg hover:scale-[1.02] transition-all duration-300 group">
+              <!-- Image slider container -->
+              <div
+                class="relative h-[180px] overflow-hidden rounded mb-4 image-slider-container"
+                data-images='[
+                  "https://placehold.co/300x200?text=1",
+                  "https://placehold.co/300x200?text=2",
+                  "https://placehold.co/300x200?text=3"
+                ]'
+              ></div>
+
+              <!-- Card content -->
+
+              <h3>📝 Brightminds Essay Portal</h3>
+              <p class="text-sm text-gray-300 mb-2">
+                Laravel-based portal with timer, autosave, dashboard, and PDF
+                export.
+              </p>
+              <p class="text-xs text-gray-400 mb-3">
+                2024 | Tech: Laravel, JS, PDF.js, DataTables
+              </p>
+              <div class="flex justify-between text-sm text-blue-400">
+                <a
+                  href="https://brightminds.in"
+                  target="_blank"
+                  class="hover:underline"
+                  >🔗 View Live</a
+                >
+                <a
+                  href="https://github.com/rahulg078/brightminds"
+                  target="_blank"
+                  class="hover:underline"
+                  >GitHub ↗</a
+                >
+              </div>
             </div>
           </div>
 
-          <!-- Project 2 -->
-          <div
-            class="bg-white/5 p-5 rounded-lg shadow hover:scale-[1.015] transition-all duration-300 group"
-          >
-            <img
-              src="https://placehold.co/300x200?text=AcreEarth"
-              alt="AcreEarth Portal"
-              class="rounded mb-4"
-            />
-            <h3 class="text-xl font-bold text-green-300 mb-1">
-              🏠 AcreEarth Real Estate
-            </h3>
-            <p class="text-sm text-gray-300 mb-2">
-              Full-stack real estate platform with filtered listings, admin CMS,
-              SEO and responsive design used Bootstrap framework for styles
-            </p>
-            <p class="text-xs text-gray-400 mb-3">
-              June 2023 | Tech: PHP, MySQL, Bootstrap, jQuery
-            </p>
-            <div class="flex justify-between text-sm text-blue-400">
-              <a href="#" target="_blank" class="hover:underline"
-                >View Live ↗</a
-              >
+          <!-- CinemaHub -->
+          <div class="project-card" data-category="github">
+            <div class="bg-white/5 p-5 rounded-lg hover:scale-[1.02] transition-all duration-300 group">
+              <!-- Image slider container -->
+              <div
+                class="relative h-[180px] overflow-hidden rounded mb-4 image-slider-container"
+                data-images='[
+                  "https://placehold.co/300x200?text=1",
+                  "https://placehold.co/300x200?text=2",
+                  "https://placehold.co/300x200?text=3"
+                ]'
+              ></div>
+
+              <!-- Card content -->
+              <h3>Cinema Hub Clone 🎬</h3>
+              <p class="text-sm text-gray-300 mb-2">
+                React-based JioCinema UI with Tailwind and JSON API.
+              </p>
+              <br />
+              <p class="text-xs text-gray-400 mb-3">
+                2025 | Tech: React, Tailwind, Netlify
+              </p>
+              <div class="flex justify-between text-sm text-blue-400">
+                <a
+                  href="https://cinemahub.netlify.app"
+                  target="_blank"
+                  class="hover:underline"
+                  >View Live ↗</a
+                >
+                <a
+                  href="https://github.com/rahulg078/cinema-hub-react"
+                  target="_blank"
+                  class="hover:underline"
+                  >GitHub</a
+                >
+              </div>
             </div>
           </div>
 
-          <!-- Project 3 -->
-          <div
-            class="bg-white/5 p-5 rounded-lg shadow hover:scale-[1.015] transition-all duration-300 group"
-          >
-            <img
-              src="https://placehold.co/300x200?text=Brightminds"
-              alt="Brightminds EdTech Portal"
-              class="rounded mb-4"
-            />
-            <h3 class="text-xl font-bold text-green-300 mb-1">
-              📝 Brightminds Essay Portal
-            </h3>
-            <p class="text-sm text-gray-300 mb-2">
-              Essay competition site with timer, autosave, admin dashboards, PDF
-              export & applicant tracking.
-            </p>
-            <p class="text-xs text-gray-400 mb-3">
-              2024 | Tech: Laravel, JS, PDF.js, DataTables
-            </p>
-            <div class="flex justify-between text-sm text-blue-400">
-              <a href="#" target="_blank" class="hover:underline"
-                >🔗 View Live</a
-              >
-              <a
-                href="https://github.com/rahul-gupta-dev/brightminds-portal"
-                target="_blank"
-                class="hover:underline"
-                >GitHub ↗</a
-              >
+          <!-- AcreEarth -->
+          <div class="project-card" data-category="live">
+            <div class="bg-white/5 p-5 rounded-lg hover:scale-[1.02] transition-all duration-300 group">
+              <!-- Image slider container -->
+              <div
+                class="relative h-[180px] overflow-hidden rounded mb-4 image-slider-container"
+                data-images='[
+                  "https://placehold.co/300x200?text=1",
+                  "https://placehold.co/300x200?text=2",
+                  "https://placehold.co/300x200?text=3"
+                ]'
+              ></div>
+
+              <!-- Card content -->
+              <h3>🏠 AcreEarth Real Estate</h3>
+              <p class="text-sm text-gray-300 mb-2">
+                Full-stack portal with filter listing, login & admin CMS.
+              </p>
+              <br />
+              <p class="text-xs text-gray-400 mb-3">
+                2023 | Tech: PHP, MySQL, jQuery, Bootstrap
+              </p>
+              <div class="flex justify-end text-sm text-gray-400 italic">
+                🖥️ Local Only
+              </div>
             </div>
           </div>
 
-          <!-- Project 4 -->
-          <div
-            class="bg-white/5 p-5 rounded-lg shadow hover:scale-[1.015] transition-all duration-300 group"
-          >
-            <img
-              src="https://placehold.co/300x200?text=Finance+Dashboard"
-              alt="Stock Dashboard"
-              class="rounded mb-4"
-            />
-            <h3 class="text-xl font-bold text-green-300 mb-1">
-              📊 Stock Market Dashboard
-            </h3>
-            <p class="text-sm text-gray-300 mb-2">
-              Real-time stock tracker built with PHP & AJAX. Data visualized
-              with Chart.js and stored in MySQL.
-            </p>
-            <p class="text-xs text-gray-400 mb-3">
-              2023 | Tech: JS, PHP, MySQL, Chart.js
-            </p>
-            <div class="flex justify-between text-sm text-blue-400">
-              <a href="#" target="_blank" class="hover:underline"
-                >🔗 View Live</a
-              >
-              <a
-                href="https://github.com/rahulg078/stock-dashboard"
-                target="_blank"
-                class="hover:underline"
-                >GitHub ↗</a
-              >
+          <!-- Stock Market Dashboard -->
+          <div class="project-card" data-category="live">
+            <div class="bg-white/5 p-5 rounded-lg hover:scale-[1.02] transition-all duration-300 group">
+              <!-- Image slider container -->
+              <div
+                class="relative h-[180px] overflow-hidden rounded mb-4 image-slider-container"
+                data-images='[
+                  "https://placehold.co/300x200?text=1",
+                  "https://placehold.co/300x200?text=2",
+                  "https://placehold.co/300x200?text=3"
+                ]'
+              ></div>
+
+              <!-- Card content -->
+              <h3>📊 Stock Market Dashboard</h3>
+              <p class="text-sm text-gray-300 mb-2">
+                Live stock chart using AJAX & Chart.js, hosted on localhost.
+              </p>
+              <br />
+              <p class="text-xs text-gray-400 mb-3">
+                2023 | Tech: PHP, MySQL, Chart.js
+              </p>
+              <div class="flex justify-between text-sm text-blue-400">
+                <a href="#" target="_blank" class="hover:underline"
+                  >🔗 View Live</a
+                >
+                <a
+                  href="https://github.com/rahulg078/stock-dashboard"
+                  target="_blank"
+                  class="hover:underline"
+                  >GitHub ↗</a
+                >
+              </div>
             </div>
           </div>
 
-          <!-- Project 5 -->
-          <div
-            class="bg-white/5 p-5 rounded-lg shadow hover:scale-[1.015] transition-all duration-300 group"
-          >
-            <img
-              src="https://placehold.co/300x200?text=Resume+Builder"
-              alt="Resume Builder"
-              class="rounded mb-4"
-            />
-            <h3 class="text-xl font-bold text-green-300 mb-1">
-              🧾 Resume Builder Tool
-            </h3>
-            <p class="text-sm text-gray-300 mb-2">
-              Built a browser-based tool to generate, style, and export resumes
-              with live preview.
-            </p>
-            <p class="text-xs text-gray-400 mb-3">
-              2023 | Tech: HTML/CSS, JS, LocalStorage
-            </p>
-            <div class="flex justify-between text-sm text-blue-400">
-              <a href="#" target="_blank" class="hover:underline"
-                >🔗 View Live</a
-              >
-              <a
-                href="https://github.com/rahulg078/resume-builder"
-                target="_blank"
-                class="hover:underline"
-                >GitHub ↗</a
-              >
+          <!-- Resume Builder -->
+          <div class="project-card" data-category="netlify">
+            <div class="bg-white/5 p-5 rounded-lg hover:scale-[1.02] transition-all duration-300 group">
+              <!-- Image slider container -->
+              <div
+                class="relative h-[180px] overflow-hidden rounded mb-4 image-slider-container"
+                data-images='[
+                  "https://placehold.co/300x200?text=1",
+                  "https://placehold.co/300x200?text=2",
+                  "https://placehold.co/300x200?text=3"
+                ]'
+              ></div>
+
+              <!-- Card content -->
+              <h3>🧾 Resume Builder Tool</h3>
+              <p class="text-sm text-gray-300 mb-2">
+                Build & export styled resumes with preview support.
+              </p>
+              <br />
+              <p class="text-xs text-gray-400 mb-3">
+                2023 | Tech: JS, LocalStorage
+              </p>
+              <div class="flex justify-between text-sm text-blue-400">
+                <a href="#" target="_blank" class="hover:underline"
+                  >🔗 View Live</a
+                >
+                <a
+                  href="https://github.com/rahulg078/resume-builder"
+                  target="_blank"
+                  class="hover:underline"
+                  >GitHub ↗</a
+                >
+              </div>
             </div>
           </div>
         </div>
@@ -787,10 +514,7 @@
 
         <!-- Tabs -->
         <div class="flex space-x-3 mb-5">
-          <button
-            class="tab-btn px-4 py-2 rounded border"
-            onclick="toggleTab(event, 'corporate')"
-          >
+          <button class="tab-btn" onclick="toggleTab(event, 'corporate')">
             Corporate
           </button>
           <button
@@ -814,16 +538,32 @@
             <ul class="text-gray-300 space-y-4">
               <li>
                 <h4 class="text-xl font-semibold text-white">
+                  Grihum Bank (via Sanglob Business Services)
+                  <span class="text-sm text-gray-400">May 2025 – Present</span>
+                </h4>
+                <p class="text-sm">
+                  Contributing to NBFC - Loan Origination System, Digital
+                  banking solution modules. Focus on Understanding Sales/Credit
+                  Flows, testing. Bridging development & QA for faster
+                  deployment cycles.
+                </p>
+                <p class="text-sm text-green-400 mt-1">
+                  Skills: OutSystems, Jira, Functional QA, Responsive Design,
+                  Team Collaboration
+                </p>
+              </li>
+              <li>
+                <h4 class="text-xl font-semibold text-white">
                   Sanglob Business Services
                   <span class="text-sm text-gray-400">Aug 2024 – Present</span>
                 </h4>
-                <p class="text-sm my-1">
+                <p class="text-sm">
                   Full Stack Dev – Brightminds Portal, Admin Dashboards, Laravel
                   API, Auth Logic, UI/UX with Datatables, Timer & Essay System.
                 </p>
                 <p class="text-sm text-green-400 mt-1">
-                  MERN | Laravel | Bootstrap | Tailwind | Chart.js | PDF.js |
-                  API
+                  Skills: MERN | Laravel | Bootstrap | Tailwind | Chart.js |
+                  PDF.js | API's
                 </p>
               </li>
 
@@ -834,12 +574,13 @@
                     >May 2023 – July 2024</span
                   >
                 </h4>
-                <p class="text-sm my-1">
+                <p class="text-sm">
                   Real Estate Portal – Dynamic CMS, Login System, Filter Logic,
                   Admin Panel, SEO Optimization.
                 </p>
                 <p class="text-sm text-green-400 mt-1">
-                  jQuery | PHP | MySQL | WordPress | Ajax | Hosting
+                  Skills: jQuery | PHP | MySQL | WordPress | Ajax | Hosting |
+                  Bootstrap | SCSS
                 </p>
               </li>
 
@@ -848,12 +589,13 @@
                   AKS IT Universe
                   <span class="text-sm text-gray-400">Jan – Apr 2023</span>
                 </h4>
-                <p class="text-sm my-1">
+                <p class="text-sm">
                   PHP Intern – CRUD Forms, API Practice, Auth Sessions, Git &
                   XAMPP usage
                 </p>
                 <p class="text-sm text-green-400 mt-1">
-                  Core PHP | HTML/CSS | Git | WinForms
+                  Core PHP | HTML/CSS/JS | Postman | REST API's | Git | WinForms
+                  | Confetti.js
                 </p>
               </li>
             </ul>
@@ -950,23 +692,31 @@
             </ul>
 
             <hr class="my-4 border-zinc-600" />
+            <div class="text-sm text-gray-400">
+              <p>📍 Pune, Maharashtra</p>
+              <p>📞 +91 7580803042</p>
+              <p>📧 rahulg6235035@gmail.com</p>
+            </div>
 
-            <p class="italic text-gray-400 text-sm">
-              "College taught me logic. Practice made it powerful."
+            <p class="italic text-gray-400 text-sm mt-4">
+              <span class="text-green-400">College taught me logic.</span>
+              Practice made it powerful.<br />
+              I don't just code websites,
+              <span class="text-green-400">I build digital experiences.</span>
             </p>
           </div>
         </div>
 
         <!-- Tech Stack and Skills Card -->
         <div
-          class="bg-zinc-900 p-4 rounded-lg shadow border border-zinc-700 mt-5"
+          class="bg-zinc-900 p-4 rounded-lg shadow border border-zinc-700 mt-6"
         >
           <h4 class="text-2xl font-bold mb-3">🛠️ Tech Stack & Proficiencies</h4>
 
           <div class="grid md:grid-cols-2 gap-6 text-sm text-gray-300">
-            <div>
+            <div class="timeline">
               <h5>Front-End Development</h5>
-              <ul class="list-disc list-inside space-y-1">
+              <ul>
                 <li>
                   <strong>HTML/CSS:</strong> Skilled in building structured and
                   visually appealing UIs.
@@ -976,8 +726,7 @@
                   interactive interfaces.
                 </li>
                 <li>
-                  <strong>jQuery/Ajax:</strong> Fast and dynamic, without reload
-                  page
+                  <strong>jQuery/Ajax:</strong> Fast and dynamic, without page reload.
                 </li>
                 <li>
                   <strong>React.js:</strong> Learning and building modern SPA
@@ -986,12 +735,11 @@
               </ul>
             </div>
 
-            <div>
+            <div class="timeline">
               <h5>Back-End Development</h5>
-              <ul class="list-disc list-inside space-y-1">
+              <ul>
                 <li>
-                  <strong>PHP:</strong> Dynamic and scripting language for
-                  server.
+                  <strong>PHP:</strong> For Logics & SSR (server side rendering).
                 </li>
                 <li><strong>Firebase:</strong> Auth, Realtime</li>
                 <li>
@@ -1005,16 +753,16 @@
               </ul>
             </div>
 
-            <div>
+            <div class="timeline">
               <h5>CMS / Builders</h5>
-              <ul class="list-disc list-inside space-y-1">
+              <ul>
                 <li><strong>WordPress:</strong> Theme & Plugin Dev</li>
                 <li>
                   <strong>Elementor:</strong> Working elementor and beavor page
                   builder.
                 </li>
                 <li>
-                  <strong>WooCommerce:</strong> create 4 WooCommerce sites.
+                  <strong>WooCommerce:</strong> Created 2 WooCommerce sites.
                 </li>
                 <li>
                   <strong>React.js:</strong> Learning and building modern SPA
@@ -1023,9 +771,9 @@
               </ul>
             </div>
 
-            <div>
+            <div class="timeline">
               <h5>Version Control / Deployment</h5>
-              <ul class="list-disc list-inside space-y-1">
+              <ul>
                 <li>
                   <strong>Git</strong>
                 </li>
@@ -1040,9 +788,10 @@
                 </li>
               </ul>
             </div>
-            <div>
+
+            <div class="timeline">
               <h5>Design / Tools</h5>
-              <ul class="list-disc list-inside space-y-1">
+              <ul>
                 <li><strong>Figma/Canva:</strong> Theme & Plugin Dev</li>
                 <li><strong>Postman:</strong> create 4 WooCommerce sites.</li>
                 <li>
@@ -1059,9 +808,9 @@
               </ul>
             </div>
 
-            <div>
+            <div class="timeline">
               <h5>📌 Soft Skills</h5>
-              <ul class="list-disc list-inside space-y-1">
+              <ul>
                 <li>
                   <strong> Problem-solving</strong>
                 </li>
@@ -1080,9 +829,9 @@
               </ul>
             </div>
 
-            <div>
+            <div class="timeline">
               <h5>📦 Database Technologies</h5>
-              <ul class="list-disc list-inside space-y-1">
+              <ul>
                 <li>
                   <strong>MySQL:</strong> Designing and managing relational data
                   models.
@@ -1094,22 +843,24 @@
               </ul>
             </div>
 
-            <div>
-              <h5>Latest Projects</h5>
-              <p>
+            <div class="timeline">
+              <h5>🎯 Latest Projects</h5>
+              <ul class="list-disc">
                 Working on real-world apps with MERN, Laravel, WordPress, and
-                MySQL. <br />
+                MySQL.
+                <br />
                 <span
                   class="text-blue-400 cursor-pointer hover:underline transition-all mt-4"
                   onclick="scrollToProject()"
                 >
                   Click on the arrows in Project Section ↗ for source code</span
                 >
-              </p>
+              </ul>
             </div>
           </div>
         </div>
       </div>
+
       <!-- Contact -->
       <div id="contact" class="p-6 hidden">
         <h2
@@ -1119,25 +870,25 @@
         </h2>
         <div class="grid md:grid-cols-2 gap-5 maxd-w-6xl mx-auto">
           <!-- About / Social -->
-          <div class="bg-zinc-800 p-6 rounded-lg shadow space-y-4">
+          <div class="bg-zinc-800 p-6 rounded-lg">
             <h3 class="text-2xl font-bold text-green-400">👨‍💻 About Me</h3>
-            <p class="text-gray-300">Passionate Full Stack Developer with 3+ years of experience in PHP, Laravel, MERN stack,
-              and WordPress. I build scalable solutions with a strong focus on responsive design,
-              intuitive UI/UX, and clean code. Let's connect.
+            <p class="text-gray-300">
+              Passionate Full Stack Developer with 3+ years of experience in
+              PHP, Laravel, MERN stack, and WordPress. Focuses on responsive
+              design, intuitive UI/UX, and clean code.
             </p>
-
-            <h4 class="text-xl font-semibold text-green-400 mt-4">
-              🎯 My Goal
-            </h4>
+            <hr class="my-4" />
+            <h4 class="text-xl font-semibold text-green-400">🎯 My Goal</h4>
             <p class="text-gray-300">
               To become a solution-driven software architect who blends code,
-              creativity, and UI/UX strategy to build impactful platforms.
+              creativity.
             </p>
+            <hr class="my-4" />
 
-            <h4 class="text-xl font-semibold text-green-400 mt-6">
-              🌐 Media Handles
+            <h4 class="text-xl font-semibold text-green-400 mb-2">
+              🌐 Let's Connect
             </h4>
-            <div class="flex space-x-4 mt-3">
+            <div class="flex space-x-4">
               <a
                 href="https://www.linkedin.com/in/rahul-gupta-dev"
                 target="_blank"
@@ -1147,7 +898,7 @@
                 <i class="fab fa-linkedin-in linkedin"></i>
               </a>
               <a
-                href="https://github.com/rahulg078"
+                href="https://github.com/rahul-gupta-dev/"
                 target="_blank"
                 title="GitHub"
                 class="social-icon hover:text-white text-gray-400 transition duration-300"
@@ -1159,7 +910,8 @@
                 title="Contact"
                 class="social-icon hover:text-white text-gray-400 transition duration-300"
               >
-              <i class="fa-solid fa-phone"></i>              </a>
+                <i class="fa-solid fa-phone phone"></i>
+              </a>
               <a
                 href="mailto:rahul@example.com"
                 title="Email"
@@ -1168,369 +920,98 @@
                 <i class="fas fa-envelope email"></i>
               </a>
               <a
-                href="https://twitter.com/rahulgupta"
+                href="https://x.com/Rahulg078"
                 target="_blank"
                 title="Twitter"
                 class="social-icon hover:text-white text-gray-400 transition duration-300"
               >
                 <i class="fab fa-twitter twitter"></i>
               </a>
+              <!-- Location Icon Trigger -->
               <a
-                href="mailto:rahul@example.com"
-                title="Email"
-                class="social-icon hover:text-white text-gray-400 transition duration-300"
+                href="#"
+                title="View Location"
+                class="social-icon hover:text-red-400 text-gray-400 transition duration-300"
               >
-              <i class="fa-solid fa-location-dot"></i>              </a>
+                <i class="fa-solid fa-location-dot"></i>
+              </a>
             </div>
           </div>
 
           <!-- Contact Form -->
-          <div class="bg-zinc-800 p-6 rounded-lg shadow space-y-4">
-            <form
-              id="contactForm"
-              class="space-y-4"
-              method="POST"
-              action="https://api.web3forms.com/submit"
-            >
-              <!-- Web3Forms API key -->
+          <form
+            id="contactForm"
+            class="bg-zinc-800 px-6 py-3 rounded-lg shadow space-y-4"
+            method="POST"
+            action="https://api.web3forms.com/submit"
+          >
+            <!-- Web3Forms API key -->
+            <input
+              type="hidden"
+              name="access_key"
+              value="3c6628c2-ddb3-4598-a064-22a1e8b2a920"
+            />
+
+            <p class="text-green-400">
+              Let’s build something extraordinary together 🚀
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-5">
               <input
-                type="hidden"
-                name="access_key"
-                value="3c6628c2-ddb3-4598-a064-22a1e8b2a920"
-              />
-
-              <p class="text-green-400">
-                Let’s build something extraordinary together 🚀
-              </p>
-
-              
-              <div class="grid md:grid-cols-2 gap-5">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="🧑 Your Full Name"
-                  data-placeholder='["😎 Your Full Name", "🧑 Your Good Name"]'
-                  required
-                  class="w-full p-3 bg-zinc-900 border border-zinc-700 rounded dynamic-placeholder"
-                />
-                <input
-                  type="text"
-                  name="phone"
-                  placeholder="📱 Phone Number"
-                  data-placeholder='["📞 Your Phone Number", "📱 Your Mobile Number",]'
-                  required
-                  class="w-full p-3 bg-zinc-900 border border-zinc-700 rounded dynamic-placeholder"
-                />
-                </div>
-
-              
-              <input
-                type="email"
-                name="email"
-                placeholder="📧 Your Email"
-                data-placeholder='["📮 Your Email Address", "📧 Your Email", "💌 Contact Email"]'
+                type="text"
+                name="name"
+                placeholder="🧑 Your Full Name"
+                data-placeholder='["😎 Your Full Name", "🧑 Enter Your Name"]'
                 required
                 class="w-full p-3 bg-zinc-900 border border-zinc-700 rounded dynamic-placeholder"
               />
-
-              <textarea
-                name="message"
-                placeholder="✉️ Your Message"
-                data-placeholder='["💬 Let’s talk...", "📝 Message here", "✉️ Your thoughts..."]'
+              <input
+                type="tel"
+                name="mobile"
+                placeholder="📱 Mobile Number"
+                data-placeholder='["📞 Your Phone Number", "📱 Enter Your Mobile Number"]'
                 required
-                class="w-full p-3 bg-zinc-900 border border-zinc-700 rounded h-32 dynamic-placeholder"
-              ></textarea>
-
-              <button type="submit" class="gredient-btn">
-                Send Message 📩
-              </button>
-
-              <div id="formStatus" class="mt-2 text-sm">ff</div>
-            </form>
-
-            <div id="successCard" class="hidden text-center mt-4">
-              <h3 class="text-xl text-green-400">
-                🎉 Form submitted successfully!
-              </h3>
-              <p class="text-gray-300">
-                Thank you! The form has been submitted successfully. We will
-                reply to you soon!
-              </p>
+                class="w-full p-3 bg-zinc-900 border border-zinc-700 rounded dynamic-placeholder"
+              />
             </div>
-          </div>
+
+            <input
+              type="email"
+              name="email"
+              placeholder="📧 Your Email"
+              data-placeholder='["📮 Your Email Address", "💌 Enter Your Email ID"]'
+              required
+              class="w-full p-3 bg-zinc-900 border border-zinc-700 rounded dynamic-placeholder"
+            />
+
+            <textarea
+              name="message"
+              placeholder="✉️ Your Message"
+              data-placeholder='["💬 Let’s talk...", "📝 Message here"]'
+              required
+              class="w-full p-3 bg-zinc-900 border border-zinc-700 rounded dynamic-placeholder"
+            ></textarea>
+
+            <button type="submit" class="gredient-btn">Send Message 📩</button>
+
+            <div id="formStatus" class="mt-2 text-sm"></div>
+          </form>
         </div>
+
+        <!-- Google Map Overlay -->
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.5985102903275!2d73.95611417513104!3d18.505739670184698!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c29c72773339%3A0xd486b317379ef1ce!2sManjari%20Bk%2C%20Pune%2C%20Maharashtra%2041207!5e0!3m2!1sen!2sin!4v1718705674383!5m2!1sen!2sin"
+          width="100%"
+          height="400"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="rounded-b-lg mt-6 rounded"
+        ></iframe>
       </div>
     </section>
 
-    <script>
-      const intro = document.getElementById("intro");
-      const maskLayer = document.getElementById("maskLayer");
-      const introText = document.getElementById("introText");
-      const revealBtn = document.getElementById("revealBtn");
-      const revealSection = document.getElementById("revealSection");
-
-      let idleTimeout;
-      const tabs = ["corporate", "college"];
-      let tabIndex = 0;
-      let autoTab = true;
-
-      setTimeout(() => {
-        if (!intro.classList.contains("hidden")) {
-          revealBtn.click(); // Trigger click
-        }
-      }, 100);
-
-      const grid = document.getElementById("achievementGrid");
-      const cards = grid.querySelectorAll(".group");
-
-      cards.forEach((card) => {
-        const toggleBtn = card.querySelector(".toggle-btn");
-        const desc = card.querySelector(".description");
-
-        toggleBtn.addEventListener("click", () => {
-          const isExpanded = desc.classList.contains("expanded");
-
-          // Close all other cards
-          cards.forEach((c) => {
-            c.querySelector(".description").classList.remove("expanded");
-            c.querySelector(".toggle-btn").textContent = "+";
-          });
-
-          // Toggle this one
-          if (!isExpanded) {
-            desc.classList.add("expanded");
-            toggleBtn.textContent = "−";
-          }
-        });
-      });
-
-      revealBtn.addEventListener("click", () => {
-        localStorage.setItem("activeSection", "home");
-        intro.classList.add("hidden");
-        revealSection.classList.remove("hidden");
-        showSection(null, "home");
-
-        document
-          .querySelector("#revealSection > header > div > button")
-          .classList.add("active");
-      });
-
-      // intro.addEventListener("mousemove", (e) => {
-      //   const x = e.clientX;
-      //   const y = e.clientY;
-      //   maskLayer.style.webkitMaskImage = `radial-gradient(circle at ${x}px ${y}px, black 0, black 130px, transparent 150px)`;
-      //   maskLayer.style.maskImage = `radial-gradient(circle at ${x}px ${y}px, black 0, black 130px, transparent 150px)`;
-      // });
-
-      // Mouse move spotlight logic
-      intro.addEventListener("mousemove", (e) => {
-        const x = e.clientX;
-        const y = e.clientY;
-
-        const radius = 100;
-        const mask = `radial-gradient(circle at ${x}px ${y}px, black 0, black ${radius}px, transparent ${
-          radius + 20
-        }px)`;
-
-        maskLayer.style.webkitMaskImage = mask;
-        maskLayer.style.maskImage = mask;
-        maskLayer.classList.add("masked");
-
-        // Reset idle timeout
-        clearTimeout(idleTimeout);
-        idleTimeout = setTimeout(() => {
-          maskLayer.classList.remove("masked");
-        }, 1000);
-      });
-
-      // On mouse leave
-      intro.addEventListener("mouseleave", () => {
-        // maskLayer.style.maskImage = "none";
-        // maskLayer.style.webkitMaskImage = "none";
-        maskLayer.classList.remove("masked");
-      });
-
-      function goHome(e) {
-        localStorage.setItem("activeSection", "home");
-        intro.classList.remove("hidden");
-        revealSection.classList.add("hidden");
-        document
-          .querySelectorAll(".menu-item")
-          .forEach((btn) => btn.classList.remove("active"));
-        e.target.classList.add("active");
-      }
-
-      function showSection(e, id) {
-        localStorage.setItem("activeSection", id);
-        intro.classList.add("hidden");
-        revealSection.classList.remove("hidden");
-
-        // Hide all inner sections
-        document.querySelectorAll("#revealSection > div").forEach((div) => {
-          div.classList.add("hidden");
-        });
-
-        // Show selected section
-        const targetSection = document.getElementById(id);
-        targetSection.classList.remove("hidden");
-
-        // Update menu active state
-        document.querySelectorAll(".menu-item").forEach((btn) => {
-          btn.classList.remove("active");
-        });
-        if (e) e.target.classList.add("active");
-      }
-
-      function toggleTab(e, type) {
-        document
-          .querySelectorAll(".tab-btn")
-          .forEach((btn) => btn.classList.remove("active"));
-        e.target.classList.add("active");
-        localStorage.setItem("expTab", type);
-
-        document
-          .getElementById("corporate")
-          .classList.toggle("hidden", type !== "corporate");
-        document
-          .getElementById("college")
-          .classList.toggle("hidden", type !== "college");
-
-        document
-          .getElementById("extra-corporate")
-          .classList.toggle("hidden", type !== "corporate");
-        document
-          .getElementById("extra-college")
-          .classList.toggle("hidden", type !== "college");
-      }
-
-      // const titles = [
-      //   "👨‍💻 Rahul Gupta | Full Stack Dev",
-      //   "MERN • Laravel • WordPress",
-      //   "📁 Projects | 🔧 Experience | 📬 Contact",
-      // ];
-      // let index = 0;
-      // setInterval(() => {
-      //   if (!revealSection.classList.contains("hidden")) {
-      //     document.title = titles[index++ % titles.length];
-      //   }
-      // }, 4000);
-
-      window.onload = () => {
-        const active = localStorage.getItem("activeSection");
-
-        if (active && active !== "home") {
-          intro.classList.add("hidden");
-          revealSection.classList.remove("hidden");
-          document.getElementById(active).classList.remove("hidden");
-          document.querySelectorAll(".menu-item").forEach((btn) => {
-            btn.classList.remove("active");
-            if (btn.textContent.toLowerCase().includes(active))
-              btn.classList.add("active");
-          });
-        }
-      };
-
-      document.addEventListener("DOMContentLoaded", () => {
-        const lastTab = localStorage.getItem("expTab") || "corporate";
-
-        // toggleTab(
-        //   { target: document.querySelector(`[onclick*='${lastTab}']`) },
-        //   lastTab
-        // );
-
-        document.querySelector(`.tab-btn[onclick*="${lastTab}"]`)?.click();
-
-        const paragraphs = document.querySelectorAll("#project .grid p");
-
-        paragraphs.forEach((p) => {
-          const originalText = p.textContent.trim();
-          const length = 120;
-
-          if (originalText.length > length) {
-            p.textContent = originalText.slice(0, length) + "...";
-          }
-        });
-      });
-
-      const placeholderFields = document.querySelectorAll(
-        ".dynamic-placeholder"
-      );
-      placeholderFields.forEach((field) => {
-        const placeholders = JSON.parse(field.dataset.placeholder || "[]");
-        let i = 0;
-        setInterval(() => {
-          if (!field.value) {
-            field.placeholder = placeholders[i % placeholders.length];
-            i++;
-          }
-        }, 4000);
-      });
-
-      const contactForm = document.getElementById("contactForm");
-      const successCard = document.getElementById("successCard");
-      const status = document.getElementById("formStatus");
-
-      contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-
-        // const form = e.target;
-        // const name = form.name.value.trim();
-        // const email = form.email.value.trim();
-        // const message = form.message.value.trim();
-
-        // if (!name || !email || !message) {
-        //   alert("❌ Please fill in all fields.");
-        //   return;
-        // }
-
-        // const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
-        // if (!emailPattern.test(email)) {
-        //   alert("❌ Please enter a valid email address.");
-        //   return;
-        // }
-
-        const formData = new FormData(contactForm);
-
-        fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          body: formData,
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.success) {
-              status.innerHTML = "🎉 Message sent successfully!";
-              status.style.color = "limegreen";
-              form.reset();
-              // successCard.classList.remove("hidden");
-            } else {
-              status.innerHTML = "❌ Message failed. Please try again.";
-              status.style.color = "red";
-            }
-          })
-          .catch(() => {
-            status.innerHTML = "⚠️ Network error.";
-            status.style.color = "orange";
-          });
-      });
-
-      function scrollToProject() {
-        // Show the Project section
-        showSection(null, "project");
-
-        // Scroll smoothly to it
-        const projectSection = document.getElementById("project");
-        if (projectSection) {
-          projectSection.scrollIntoView({ behavior: "smooth" });
-        }
-
-        // Set active menu item (optional)
-        document
-          .querySelectorAll(".menu-item")
-          .forEach((btn) => btn.classList.remove("active"));
-        document
-          .querySelector(".menu-item[onclick*='project']")
-          .classList.add("active");
-      }
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

@@ -39,17 +39,17 @@ function startCountdown() {
 
 startCountdown();
 
-// Handle "Yes" click
+// Handle "Stay" click
 stayBtn.addEventListener("click", () => {
   clearInterval(countdownInterval);
   clearTimeout(redirectTimeout);
   countdownSeconds += 10;
-  stayBtn.textContent = "⏳ Time Added";
+  stayBtn.textContent = "⏳";
   stayBtn.disabled = true;
 
   // Restart countdown
   setTimeout(() => {
-    stayBtn.textContent = "Yes";
+    stayBtn.textContent = "Stay";
     stayBtn.disabled = false;
   }, 8000);
 
@@ -350,7 +350,7 @@ projectTabs.forEach((tab) => {
 });
 
   // Disable right-click
-  // document.addEventListener("contextmenu", (e) => e.preventDefault());
+  document.addEventListener("contextmenu", (e) => e.preventDefault());
 
   // Disable F12, Ctrl+Shift+I, Ctrl+U
   document.onkeydown = function (e) {

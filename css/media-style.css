@@ -1,0 +1,78 @@
+
+
+@media (max-width: 990px) {
+  #welcomeBanner {
+    width: 95%;
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  #contact .grid > div {
+    order: 1;
+  }
+}
+
+@media (max-width: 570px) {
+  #experience .timeline li h4 {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 470px) {
+  h2.fade-in-up {
+    font-size: 1.75rem;
+  }
+
+  header .menu-item {
+    font-size: 12px;
+    margin: 0 4px !important;
+  }
+  #experience #college h3:has(span) {
+    font-size: 17px;
+  }
+  #project .project-tab-btn {
+    padding: 8px;
+  }
+
+  #project .project-tab-btn:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 380px) {
+  footer .counter:has(#visitorCounter) {
+    display: block;
+    align-items: center;
+    gap: 5px;
+  }
+  footer .social-icon i {
+    font-size: 12px;
+    padding: 7px;
+  }
+  #home.title-text {
+    font-size: 15px;
+  }
+  h2.fade-in-up {
+    font-size: 1.5rem;
+  }
+  header {
+    padding: 10px !important;
+  }
+  #project .project-tab-btn:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 320px) {
+  h2.fade-in-up {
+    font-size: 1.4rem;
+  }
+  header a span {
+    display: none;
+  }
+
+  #contact .social-icon:has(i.twitter) {
+    display: none;
+  }
+}

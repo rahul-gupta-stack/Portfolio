@@ -1,0 +1,150 @@
+[
+  {
+    "category": "live",
+    "title": "🏠 AcreEarth Real Estate Platform",
+    "description": "Feature-rich property listing site with filters, login, CMS, and listing dashboards. Backend powered by secure database logic and admin panel.",
+    "tech": "PHP, MySQL, AJAX, DataTables, Bootstrap, JS",
+    "images": [
+      "assets/images/acreearth-contact.webp",
+      "assets/images/acreearth-property.webp"
+    ],
+    "link": "https://acreearth.com/"
+  },
+  {
+    "category": "local",
+    "title": "🛡️ Brahman Vidyarthi Sahayak Mandal",
+    "description": "Student assistance portal offering form submissions, admission support, and backend processing. Secure login system and intuitive dashboard for document management.",
+    "tech": "HTML5, Flex, PHP, MySQL, jQuery, AJAX",
+    "images": ["assets/images/bvsm-1.webp", "assets/images/bvsm-2.webp"],
+    "link": "https://w3needs.com/altercast/final-form.php"
+  },
+  {
+    "category": "live",
+    "title": "🧵 CreatyWave – Prettiest Coasters",
+    "description": "Aesthetic product store offering coasters and handmade crafts. Includes cart, product zoom, and payment gateway integration.",
+    "tech": "Wordpress, Elementor Page Builder, Image Optimization, JS",
+    "images": [
+      "assets/images/creatywave.webp",
+      "assets/images/creatywave-listing.webp"
+    ],
+    "link": "https://creatywave.com/"
+  },
+  {
+    "category": "live",
+    "title": "📚 Tikal Academy",
+    "description": "Modern educational platform for online courses, registration, and academic updates. Responsive layout with dynamic pages and contact integration.",
+    "tech": "PHP, Vue.js, Tailwind, JS",
+    "images": [
+      "assets/images/tikal-academy.webp",
+      "assets/images/tikal-academy-business-blog.webp"
+    ],
+    "link": "https://tikalacademy.com/"
+  },
+  {
+    "category": "local",
+    "title": "🧾 Medical Prescription System",
+    "description": "Clinic management tool to generate prescriptions, maintain patient records, and support multilingual templates. Built for a fast and secure workflow.",
+    "tech": "Material UI, jQuery, AJAX, JS, MySQL, cPanel, FTP",
+    "images": [
+      "assets/images/p-dashboard.jpg"
+    ],
+    "link": "http://rokpaclinic.com/"
+  },
+  {
+    "category": "netlify",
+    "title": "💡 Torch Reveal Portfolio",
+    "description": "Interactive full-stack developer portfolio with torchlight reveal effect, animated sections, and responsive design.",
+    "tech": "HTML, Tailwind CSS, JavaScript, Canvas Confetti JS",
+    "images": [
+      "assets/images/torch-portfolio.png",
+      "assets/images/torch-portfolio-1.png"
+    ],
+    "link": "https://rahul-gupta-dev.github.io/torch-reveal-portfolio/"
+  },
+  {
+    "category": "live",
+    "title": "💹 Seamless Trading | CWBank",
+    "description": "Investment-focused UI with learning sections and market updates. Fintech design for trade education, built with speed and clarity.",
+    "tech": "React JS, Widget, SCSS, Tailwind CSS, JavaScript",
+    "images": [
+      "assets/images/cwBank-widget integration.webp",
+      "assets/images/cwBank-follow.webp"
+    ],
+    "link": "https://cwbank.live/"
+  },
+  {
+    "category": "live",
+    "title": "🎨 Kalaarang Lippan Art Decor",
+    "description": "E-commerce platform for traditional and modern wall décor. Integrated checkout, shipping, and gallery layout with responsive design.",
+    "tech": "WordPress, WooCommerce, CSS3, jQuery",
+    "images": [
+      "assets/images/kalaarang.webp",
+      "assets/images/kalaarang-description.webp"
+    ],
+    "link": "https://kalaarang.com/"
+  },
+  {
+    "category": "live",
+    "title": "✅ ISO Consultant | Niall",
+    "description": "Professional ISO certification website with lead generation forms and service listings. Optimized for SEO and structured content layout.",
+    "tech": "WordPress, Elementor, JS, SEO, PHP",
+    "images": ["assets/images/niall.webp", "assets/images/niall1.webp"],
+    "link": "https://niall.co.in/"
+  },
+  {
+    "category": "live",
+    "title": "⚖️ Capital Market Legal Services",
+    "description": "Corporate law and SEBI-related services with legal form processing. Sleek navigation and focused content to convert clients.",
+    "tech": "Wix Studio, Legal Plugin, JS, Bootstrap, SCSS",
+    "images": ["assets/images/zilawyers.webp", "assets/images/ziLawyers1.webp"],
+    "link": "https://zilawyers.com/"
+  },
+  {
+    "category": "live",
+    "title": "♿ AbbiCare Mobility Store",
+    "description": "Online store for electric wheelchairs & mobility scooters. Fully accessible with filters, support form, and cart-based logic.",
+    "tech": "Shopify, Liquid, JS, Mobile First Design",
+    "images": [
+      "assets/images/abbicare.webp",
+      "assets/images/abbicare-form.webp"
+    ],
+    "link": "https://abbicare.com.au/"
+  },
+  {
+    "category": "live",
+    "title": "🛒 Redseller – Your Store",
+    "description": "Multi-category store with smooth UX for product browsing, cart, and payments. Built for scale and customer engagement.",
+    "tech": "PHP, JS, MySQL, Bootstrap, Razorpay",
+    "images": ["assets/images/redSeller.webp", "assets/images/redseller1.webp"],
+    "link": "https://redseller.in/"
+  },
+  {
+    "category": "github",
+    "title": "📚 ERPA HR – Training Platform",
+    "description": "Romanian HR training website with course booking, calendar modules, and live updates. Designed to scale HR education.",
+    "tech": "WordPress, WPML, WooCommerce, CSS",
+    "images": ["assets/images/cursuriI.webp", "assets/images/cursuri.webp"],
+    "link": "https://erpahr.ro/cursuri/"
+  },
+  {
+    "category": "local",
+    "title": "📝 Brightminds Essay Portal",
+    "description": "Developed applicant and admin portals with timer, autosave, dashboard, and PDF export. Features include timer-based text editor, auto-save at 300+ words, role-based dashboard, dynamic modals, and responsive layout using DataTables & PHP PDO.",
+    "tech": "PHP, JS, Confetti JS, Bootstrap, DataTables, MySQL",
+    "images": [
+      "assets/images/BrightMinds.jpg",
+      "assets/images/BrightMinds-Login.jpg"
+    ]
+  },
+  {
+    "category": "github",
+    "title": "🎬 Cinema Hub Clone",
+    "description": "React-based JioCinema UI with Tailwind and JSON API and working authentication and Features include reduced-sound autoplay, responsive design, and dynamic content loading.",
+    "tech": "React, Tailwind, Netlify, Github, API",
+    "images": [
+      "assets/images/cursurii.webp",
+      "https://placehold.co/300x200?text=3"
+    ],
+    "link": "https://github.com/rahulg078/cinema-hub-react"
+  }
+]

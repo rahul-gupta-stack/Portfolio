@@ -46,7 +46,7 @@
     "description": "Clinic management tool to generate prescriptions, maintain patient records, and support multilingual templates. Built for a fast and secure workflow.",
     "tech": "Material UI, jQuery, AJAX, JS, MySQL, cPanel, FTP",
     "images": [
-      "assets/images/p-dashboard.jpg"
+      "assets/images/p-dashboard.webp"
     ],
     "link": "http://rokpaclinic.com/"
   },
@@ -56,8 +56,8 @@
     "description": "Interactive full-stack developer portfolio with torchlight reveal effect, animated sections, and responsive design.",
     "tech": "HTML, Tailwind CSS, JavaScript, Canvas Confetti JS",
     "images": [
-      "assets/images/torch-portfolio.png",
-      "assets/images/torch-portfolio-1.png"
+      "assets/images/torch-portfolio.webp",
+      "assets/images/torch-portfolio-1.webp"
     ],
     "link": "https://rahul-gupta-dev.github.io/torch-reveal-portfolio/"
   },
@@ -132,8 +132,8 @@
     "description": "Developed applicant and admin portals with timer, autosave, dashboard, and PDF export. Features include timer-based text editor, auto-save at 300+ words, role-based dashboard, dynamic modals, and responsive layout using DataTables & PHP PDO.",
     "tech": "PHP, JS, Confetti JS, Bootstrap, DataTables, MySQL",
     "images": [
-      "assets/images/BrightMinds.jpg",
-      "assets/images/BrightMinds-Login.jpg"
+      "assets/images/BrightMinds.webp",
+      "assets/images/BrightMinds-Login.webp"
     ]
   },
   {

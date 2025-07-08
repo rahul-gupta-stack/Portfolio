@@ -1,11 +1,9 @@
-
-
-@media (max-width: 990px) {
+/* @media (max-width: 990px) {
   #welcomeBanner {
     width: 95%;
     text-align: center;
   }
-}
+} */
 @media (max-width: 768px) {
   #contact .grid > div {
     order: 1;
@@ -38,6 +36,10 @@
   #project .project-tab-btn:last-child {
     display: none;
   }
+
+  #contact iframe {
+    height: 300px;
+  }
 }
 
 @media (max-width: 380px) {
@@ -68,10 +70,8 @@
   h2.fade-in-up {
     font-size: 1.4rem;
   }
-  header a span {
-    display: none;
-  }
 
+  header a span,
   #contact .social-icon:has(i.twitter) {
     display: none;
   }

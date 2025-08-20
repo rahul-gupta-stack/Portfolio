@@ -1,0 +1,46 @@
+<%- include('../partials/head') %>
+  </head>
+
+  <body>
+    <%- include('../partials/nav') %>
+
+      <main class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10 max-w-6xl">
+        <h1>Hello friend, Here are your Properties Listing</h1>
+
+        <div class="flex flex-wrap justify-center gap-6">
+          <% properties.forEach(property=> { %>
+            <div
+              class="friend-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300 w-full max-w-sm">
+              <% if (property.image) { %>
+                <img src="<%= property.image %>" alt="Property Image"
+                  class="w-24 h-24 rounded-full object-cover mb-4 border-4 border-blue-200 shadow">
+                <% } else { %>
+                  <div
+                    class="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center mb-4 text-gray-500 text-2xl">
+                    <span>No photo</span>
+                  </div>
+                  <% } %>
+
+                    <div class="p-4">
+                      <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                        <%= property.pname %>
+                      </h3>
+                      <p class="text-gray-600 mb-2"><i class="fas fa-phone-alt mr-2"></i>
+                        <%= property.price %>
+                      </p>
+                      <p class="text-gray-600 mb-2"><i class="fas fa-envelope mr-2"></i>
+                        <%= property.location %>
+                      </p><button type="button" class="bg-green-300 p-2 mb-2 rounded">
+                        <a href="/home-list/home.id">Edit</a>
+                      </button><button type="button" class="bg-green-300 p-2 mb-2 rounded">
+                        <a href="/home-list/home.id">Delete</a>
+                      </button>
+
+                    </div>
+            </div>
+            <% }) %>
+        </div>
+      </main>
+  </body>
+
+  </html>

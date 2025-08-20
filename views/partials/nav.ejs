@@ -1,0 +1,30 @@
+<header class="bg-red-500 text-white p-4 shadow-md">
+  <nav class="nav-container">
+    <a href="/" class="nav-link font-bold text-lg <%= currentPage === 'index' ? 'active' : '' %>">Property-Zone</a>
+    <div class="nav-toggle" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+
+      <li><a href="/index" class="nav-link font-bold text-lg <%= currentPage === 'home' ? 'active' : '' %>">Home Page</a></li>
+      <li><a href="/property/post-property" class="nav-link <%= currentPage === 'property-added' ? 'active' : '' %>">Add
+          Property</a></li>
+      <li><a href="/bookings" class="nav-link <%= currentPage === 'bookings' ? 'active' : '' %>">Bookings</a>
+      </li>
+      <li><a href="/property-list" class="nav-link <%= currentPage === 'property-list' ? 'active' : '' %>">Property
+          List</a>
+      </li>
+      <li><a href="/send-money" class="nav-link <%= currentPage === 'post-property' ? 'active' : '' %>">Send Money</a>
+      </li>
+      <li><a href="/favourite-list"
+          class="nav-link <%= currentPage === 'favourite-list' ? 'active' : '' %>">Favourite</a></li>
+      <li><a href="/property/my-listing" class="nav-link <%= currentPage === 'my-listing' ? 'active' : '' %>">Host Home
+          List</a></li>
+      <li><a href="/follow" class="nav-link <%= currentPage === 'follow' ? 'active' : '' %>">Follow</a></li>
+
+    </ul>
+
+  </nav>
+</header>

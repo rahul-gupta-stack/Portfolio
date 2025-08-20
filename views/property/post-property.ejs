@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<%- include('../partials/head') %>
+<style>
+  fieldset {
+    margin-bottom: 10px;
+    width: 250px;
+
+    & input{
+      width: 100%;
+      height: 25px;
+    }
+  }
+</style>
+  </head>
+
+  <body>
+    <%- include('../partials/nav') %>
+
+    <h1>Register Property Detail</h1>
+    <form action='/property/post-property' method='POST'>
+      <fieldset>
+        <label for="name">Property Name</label>
+        <input type="text" id="pname" name="pname" placeholder="Enter Property Name" />
+      </fieldset>
+
+      <fieldset>
+        <label for="price">Price</label>
+        <input type="number" id="price" name="price" placeholder="Enter Property Price" />
+      </fieldset><fieldset>
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" placeholder="Enter Property Location" />
+      </fieldset><fieldset>
+        <label for="nearby">Near By</label>
+        <input type="text" id="nearby" name="nearby" placeholder="Enter Nearby Locations" />
+      </fieldset>
+
+    
+      <fieldset>
+        <label for="image">Image</label>
+        <input type="text" id="image" name="image" />
+      </fieldset>
+
+      <input type="submit" value="Add Property" />
+    </form>
+  </body>
+
+</html>
